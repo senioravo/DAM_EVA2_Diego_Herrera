@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Indica que la app está optimizada para alto frame rate -->
+    <bool name="config_highRefreshRate">true</bool>
+    
+    <!-- Desactiva limitación automática de frame rate -->
+    <bool name="config_disableFrameRateLimit">true</bool>
+</resources>
