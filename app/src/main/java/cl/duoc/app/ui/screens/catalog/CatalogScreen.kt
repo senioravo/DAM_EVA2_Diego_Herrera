@@ -120,14 +120,7 @@ fun CatalogScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .offset(y = toolbarOffsetDp)
-                    .background(
-                        Brush.linearGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.primaryContainer,
-                                MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f)
-                            )
-                        )
-                    )
+                    .background(MaterialTheme.colorScheme.primaryContainer)
                     .padding(16.dp)
             ) {
             // Título
