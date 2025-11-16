@@ -373,6 +373,104 @@ private fun filterProducts() {
 - Recarga los datos desde el repositorio
 - Manejo de errores con try-catch
 
+#### Scroll Collapse en Toolbar (CatalogScreen)
+
+Implementación de comportamiento de ocultación automática del toolbar (búsqueda, filtros y categorías) al hacer scroll hacia abajo en el catálogo de productos. El toolbar reaparece al hacer scroll hacia arriba.
+
+**Componentes**: `CatalogScreen.kt`, `CatalogViewModel.kt`, `CatalogUIState.kt`
+
+**Implementación técnica**:
+
+**1. Estado en CatalogUIState.kt**:
+```kotlin
+data class CatalogUIState(
+    // ... otros campos
+    val toolbarOffset: Float = 0f,        // Offset actual del toolbar (0-200dp)
+    val lastScrollIndex: Int = 0,          // Último índice visible del grid
+    val lastScrollOffset: Int = 0          // Último offset del scroll
+)
+```
+
+**2. Lógica en CatalogViewModel.kt**:
+```kotlin
+fun onScrollPositionChange(firstVisibleIndex: Int, firstVisibleOffset: Int) {
+    val currentState = _estado.value
+    val previousIndex = currentState.lastScrollIndex
+    val previousOffset = currentState.lastScrollOffset
+    
+    // Detectar dirección del scroll
+    val isScrollingDown = if (firstVisibleIndex != previousIndex) {
+        firstVisibleIndex > previousIndex
+    } else {
+        firstVisibleOffset > previousOffset
+    }
+    
+    // Calcular nuevo offset del toolbar (máximo 200dp)
+    val maxOffset = 200f
+    val newOffset = if (isScrollingDown) {
+        (currentState.toolbarOffset + 10f).coerceAtMost(maxOffset)
+    } else {
+        (currentState.toolbarOffset - 10f).coerceAtLeast(0f)
+    }
+    
+    _estado.update {
+        it.copy(
+            toolbarOffset = newOffset,
+            lastScrollIndex = firstVisibleIndex,
+            lastScrollOffset = firstVisibleOffset
+        )
+    }
+}
+```
+
+**3. UI en CatalogScreen.kt**:
+```kotlin
+val gridState = rememberLazyGridState()
+val toolbarOffsetDp by animateDpAsState(
+    targetValue = (-estado.toolbarOffset).dp,
+    label = "toolbarOffset"
+)
+
+// Observar cambios en el scroll
+LaunchedEffect(gridState) {
+    snapshotFlow {
+        Pair(
+            gridState.firstVisibleItemIndex,
+            gridState.firstVisibleItemScrollOffset
+        )
+    }
+        .distinctUntilChanged()
+        .collect { (index, offset) ->
+            viewModel.onScrollPositionChange(index, offset)
+        }
+}
+
+// Aplicar offset al toolbar
+Column(
+    modifier = Modifier
+        .fillMaxWidth()
+        .offset(y = toolbarOffsetDp)
+        .background(...)
+        .padding(16.dp)
+) {
+    // SearchBar, CategoryFilters...
+}
+```
+
+**Comportamiento**:
+- **Scroll hacia abajo**: Toolbar se oculta progresivamente hacia arriba (máximo 200dp)
+- **Scroll hacia arriba**: Toolbar reaparece con animación suave
+- **Animación**: `animateDpAsState` proporciona transición fluida
+- **Detección**: `LazyGridState` con `snapshotFlow` detecta cambios en posición del scroll
+- **Performance**: `distinctUntilChanged()` evita recomposiciones innecesarias
+
+**APIs utilizadas**:
+- `LazyGridState`: Estado del scroll del LazyVerticalGrid
+- `rememberLazyGridState()`: Recordar estado entre recomposiciones
+- `snapshotFlow`: Convertir estado de Compose a Flow reactivo
+- `animateDpAsState`: Animación declarativa de valores Dp
+- `Modifier.offset()`: Desplazamiento del componente UI
+
 ---
 
 ## Sistema de Datos

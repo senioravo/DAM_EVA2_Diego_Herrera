@@ -22,6 +22,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -35,12 +36,37 @@ import java.util.Locale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
 fun CatalogScreen(
     viewModel: CatalogViewModel = viewModel()
 ) {
     val estado by viewModel.estado.collectAsState()
+    val gridState = rememberLazyGridState()
+    val toolbarOffsetDp by animateDpAsState(
+        targetValue = (-estado.toolbarOffset).dp,
+        label = "toolbarOffset"
+    )
+    
+    // Observar cambios en la posición del scroll
+    LaunchedEffect(gridState) {
+        snapshotFlow {
+            Pair(
+                gridState.firstVisibleItemIndex,
+                gridState.firstVisibleItemScrollOffset
+            )
+        }
+            .distinctUntilChanged()
+            .collect { (index, offset) ->
+                viewModel.onScrollPositionChange(index, offset)
+            }
+    }
     
     Box(
         modifier = Modifier
@@ -54,11 +80,56 @@ fun CatalogScreen(
                 )
             )
     ) {
-        Column(
+        // Grid de productos - Fondo, ocupa toda la pantalla
+        when {
+            estado.isLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            }
+            estado.error != null -> {
+                ErrorState(
+                    error = estado.error!!,
+                    onRetry = viewModel::retry
+                )
+            }
+            estado.filteredProducts.isEmpty() -> {
+                EmptyState()
+            }
+            else -> {
+                ProductGrid(
+                    products = estado.filteredProducts,
+                    gridState = gridState,
+                    topPadding = 240.dp // Espacio para toolbar + contador
+                )
+            }
+        }
+        
+        // Contenedor con clip para ocultar el toolbar cuando sube
+        Box(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
+                .fillMaxWidth()
+                .height(200.dp)
+                .clipToBounds()
         ) {
+            // Toolbar colapsable (se oculta con el scroll)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .offset(y = toolbarOffsetDp)
+                    .background(
+                        Brush.linearGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.primaryContainer,
+                                MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f)
+                            )
+                        )
+                    )
+                    .padding(16.dp)
+            ) {
             // Título
             Text(
                 text = "Catálogo de Plantas",
@@ -81,40 +152,26 @@ fun CatalogScreen(
             CategoryFilters(
                 selectedCategory = estado.selectedCategory,
                 onCategorySelected = viewModel::onCategorySelected,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier
             )
-            
-            // Contador de resultados
+            }
+        }
+        
+        // Contador de resultados - sticky (siempre visible en la parte superior)
+        val counterOffsetDp = (200.dp + toolbarOffsetDp).coerceAtLeast(0.dp)
+        
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .offset(y = counterOffsetDp)
+                .background(MaterialTheme.colorScheme.primaryContainer)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
+        ) {
             Text(
                 text = "${estado.filteredProducts.size} productos encontrados",
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-                modifier = Modifier.padding(bottom = 8.dp)
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
             )
-            
-            // Grid de productos
-            when {
-                estado.isLoading -> {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        CircularProgressIndicator()
-                    }
-                }
-                estado.error != null -> {
-                    ErrorState(
-                        error = estado.error!!,
-                        onRetry = viewModel::retry
-                    )
-                }
-                estado.filteredProducts.isEmpty() -> {
-                    EmptyState()
-                }
-                else -> {
-                    ProductGrid(products = estado.filteredProducts)
-                }
-            }
         }
     }
 }
@@ -183,12 +240,22 @@ fun CategoryFilters(
 }
 
 @Composable
-fun ProductGrid(products: List<Product>) {
+fun ProductGrid(
+    products: List<Product>,
+    gridState: androidx.compose.foundation.lazy.grid.LazyGridState,
+    topPadding: androidx.compose.ui.unit.Dp = 0.dp
+) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
+        state = gridState,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
-        contentPadding = PaddingValues(bottom = 100.dp),
+        contentPadding = PaddingValues(
+            start = 16.dp,
+            end = 16.dp,
+            top = topPadding,
+            bottom = 150.dp // Espacio adicional para el nav bar
+        ),
         flingBehavior = androidx.compose.foundation.gestures.ScrollableDefaults.flingBehavior()
     ) {
         items(products, key = { it.id }) { product ->
@@ -261,7 +328,7 @@ fun ProductCard(product: Product) {
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
+            containerColor = MaterialTheme.colorScheme.onPrimary
         )
     ) {
         Column(
@@ -492,10 +559,29 @@ private fun formatPrice(price: Double): String {
     return format.format(price)
 }
 
-@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun CatalogScreenPreview() {
     PlantBuddyTheme {
         CatalogScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProductCardPreview() {
+    PlantBuddyTheme {
+        ProductCard(
+            product = Product(
+                id = 1,
+                name = "Monstera Deliciosa",
+                description = "Planta tropical de grandes hojas perforadas",
+                price = 25990.0,
+                imageUrl = "monstera",
+                category = "Interior",
+                stock = 10,
+                rating = 4.5f
+            )
+        )
     }
 }

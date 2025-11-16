@@ -80,4 +80,32 @@ class CatalogViewModel(
     fun retry() {
         loadProducts()
     }
+    
+    fun onScrollPositionChange(firstVisibleIndex: Int, firstVisibleOffset: Int) {
+        val currentState = _estado.value
+        val previousIndex = currentState.lastScrollIndex
+        val previousOffset = currentState.lastScrollOffset
+        
+        // Calcular el desplazamiento real en píxeles (más lento)
+        val scrollDelta = if (firstVisibleIndex != previousIndex) {
+            // Cambio de item
+            (firstVisibleIndex - previousIndex) * 5f
+        } else {
+            // Mismo item: usar la diferencia de offset (reducido a 50% de velocidad)
+            (firstVisibleOffset - previousOffset).toFloat() * 0.5f
+        }
+        
+        // Calcular nuevo offset del toolbar (máximo 200dp de desplazamiento)
+        val maxOffset = 200f
+        val newOffset = (currentState.toolbarOffset + scrollDelta)
+            .coerceIn(0f, maxOffset)
+        
+        _estado.update {
+            it.copy(
+                toolbarOffset = newOffset,
+                lastScrollIndex = firstVisibleIndex,
+                lastScrollOffset = firstVisibleOffset
+            )
+        }
+    }
 }

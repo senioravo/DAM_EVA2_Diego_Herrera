@@ -5,6 +5,7 @@ bool config_highRefreshRate
 color black
 color white
 drawable bignonia_naranja
+drawable ficus_lyrata_bambino
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable kniphofia_uvaria

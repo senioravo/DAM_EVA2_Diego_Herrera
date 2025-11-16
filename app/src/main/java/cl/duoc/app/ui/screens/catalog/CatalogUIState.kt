@@ -8,5 +8,8 @@ data class CatalogUIState(
     val searchQuery: String = "",
     val selectedCategory: String = "all",
     val isLoading: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
+    val toolbarOffset: Float = 0f,
+    val lastScrollIndex: Int = 0,
+    val lastScrollOffset: Int = 0
 )
