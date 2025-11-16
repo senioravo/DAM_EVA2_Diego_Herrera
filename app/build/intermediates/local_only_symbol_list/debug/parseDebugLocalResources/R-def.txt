@@ -3,6 +3,7 @@ local
 bool config_disableFrameRateLimit
 bool config_highRefreshRate
 color black
+color ic_launcher_background
 color white
 drawable bignonia_naranja
 drawable ficus_lyrata_bambino
@@ -12,6 +13,9 @@ drawable kniphofia_uvaria
 drawable laurel_flor_enano
 drawable lavanda_dentata
 drawable logo
+drawable logo_plant_buddy_1500
+drawable logo_plant_buddy_black_transparent
+drawable logo_plant_buddy_transparent
 drawable pitosporo_tobira_enano
 drawable plant_home_screen
 drawable rhus_crenata

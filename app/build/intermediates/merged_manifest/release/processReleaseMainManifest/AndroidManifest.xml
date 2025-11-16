@@ -10,6 +10,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
     <permission
         android:name="cl.duoc.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -35,17 +38,31 @@
             android:name="android.max_aspect"
             android:value="2.4" />
 
+        <!-- MIUI: Forzar refresh rate máximo -->
+        <meta-data
+            android:name="android.app.max_fps"
+            android:value="120" />
+
         <activity
             android:name="cl.duoc.app.MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:enableOnBackInvokedCallback="true"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Receiver para recordatorios de riego -->
+        <receiver
+            android:name="cl.duoc.app.notifications.WateringReminderReceiver"
+            android:enabled="true"
+            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

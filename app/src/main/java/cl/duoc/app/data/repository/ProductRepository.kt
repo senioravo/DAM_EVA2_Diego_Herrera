@@ -18,7 +18,8 @@ class ProductRepository {
             category = "Arbustos",
             imageUrl = "viburnum_lucidum",
             stock = 10,
-            rating = 4.8f
+            rating = 4.8f,
+            wateringCycleDays = 3
         ),
         Product(
             id = 2,
@@ -28,7 +29,8 @@ class ProductRepository {
             category = "Perennes",
             imageUrl = "kniphofia_uvaria",
             stock = 8,
-            rating = 4.6f
+            rating = 4.6f,
+            wateringCycleDays = 4
         ),
         Product(
             id = 3,
@@ -38,7 +40,8 @@ class ProductRepository {
             category = "Arbustos",
             imageUrl = "rhus_crenata",
             stock = 12,
-            rating = 4.5f
+            rating = 4.5f,
+            wateringCycleDays = 5
         ),
         Product(
             id = 4,
@@ -48,7 +51,8 @@ class ProductRepository {
             category = "Aromáticas",
             imageUrl = "lavanda_dentata",
             stock = 20,
-            rating = 4.9f
+            rating = 4.9f,
+            wateringCycleDays = 7
         ),
         Product(
             id = 5,
@@ -58,7 +62,8 @@ class ProductRepository {
             category = "Ornamentales",
             imageUrl = "laurel_flor_enano",
             stock = 15,
-            rating = 4.4f
+            rating = 4.4f,
+            wateringCycleDays = 2
         ),
         Product(
             id = 6,
@@ -68,7 +73,8 @@ class ProductRepository {
             category = "Ornamentales",
             imageUrl = "pitosporo_tobira_enano",
             stock = 18,
-            rating = 4.7f
+            rating = 4.7f,
+            wateringCycleDays = 3
         ),
         Product(
             id = 7,
@@ -78,7 +84,8 @@ class ProductRepository {
             category = "Trepadoras",
             imageUrl = "bignonia_naranja",
             stock = 9,
-            rating = 4.8f
+            rating = 4.8f,
+            wateringCycleDays = 2
         )
     )
     

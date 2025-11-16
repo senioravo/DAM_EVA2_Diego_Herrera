@@ -1441,6 +1441,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -3007,6 +3008,9 @@ drawable kniphofia_uvaria
 drawable laurel_flor_enano
 drawable lavanda_dentata
 drawable logo
+drawable logo_plant_buddy_1500
+drawable logo_plant_buddy_black_transparent
+drawable logo_plant_buddy_transparent
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password

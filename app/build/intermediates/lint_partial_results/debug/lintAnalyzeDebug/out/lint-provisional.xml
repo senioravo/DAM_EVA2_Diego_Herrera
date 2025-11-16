@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.10.1" type="conditional_incidents">
+
+    <incident
+        id="ExactAlarm"
+        severity="error"
+        message="`USE_EXACT_ALARM` can only be used when targeting API level 33 or higher">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="9"
+            column="36"
+            startOffset="506"
+            endLine="9"
+            endColumn="70"
+            endOffset="540"/>
+        <map>
+            <condition targetLT="33"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="30-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/MainActivity.kt"
+            line="102"
+            column="42"
+            startOffset="3945"
+            endLine="102"
+            endColumn="49"
+            endOffset="3952"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 30 (current min is %1$s): `android.content.ContextWrapper#getDisplay`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getDisplay"/>
+            <entry
+                name="owner"
+                string="android.content.ContextWrapper"/>
+            <api-levels id="requiresApi"
+                value="30-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="7"
+            column="50"
+            startOffset="164"
+            endLine="7"
+            endColumn="53"
+            endOffset="167"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="7"
+            column="50"
+            startOffset="164"
+            endLine="7"
+            endColumn="53"
+            endOffset="167"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="23"
+            column="56"
+            startOffset="700"
+            endLine="23"
+            endColumn="63"
+            endOffset="707"/>
+        <map>
+            <entry
+                name="desc"
+                string="(Ljava.time.temporal.Temporal;Ljava.time.temporal.Temporal;)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.Duration#between`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="between"/>
+            <entry
+                name="owner"
+                string="java.time.Duration"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="23"
+            column="64"
+            startOffset="708"
+            endLine="23"
+            endColumn="79"
+            endOffset="723"/>
+        <map>
+            <entry
+                name="message"
+                string="Implicit cast from `LocalDateTime` to `Temporal` requires API level 26 (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="23"
+            column="95"
+            startOffset="739"
+            endLine="23"
+            endColumn="98"
+            endOffset="742"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/model/PlantelPlant.kt"
+            line="23"
+            column="102"
+            startOffset="746"
+            endLine="23"
+            endColumn="108"
+            endOffset="752"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.Duration#toDays`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="toDays"/>
+            <entry
+                name="owner"
+                string="java.time.Duration"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/repository/PlantelRepository.kt"
+            line="24"
+            column="39"
+            startOffset="845"
+            endLine="24"
+            endColumn="42"
+            endOffset="848"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/repository/PlantelRepository.kt"
+            line="38"
+            column="37"
+            startOffset="1310"
+            endLine="38"
+            endColumn="40"
+            endOffset="1313"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/data/repository/PlantelRepository.kt"
+            line="54"
+            column="37"
+            startOffset="1871"
+            endLine="54"
+            endColumn="40"
+            endOffset="1874"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="622"
+            column="73"
+            startOffset="25824"
+            endLine="622"
+            endColumn="76"
+            endOffset="25827"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="623"
+            column="37"
+            startOffset="25869"
+            endLine="623"
+            endColumn="40"
+            endOffset="25872"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDate#now`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="now"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDate"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="626"
+            column="42"
+            startOffset="25949"
+            endLine="626"
+            endColumn="47"
+            endOffset="25954"/>
+        <map>
+            <entry
+                name="desc"
+                string="(I)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#atDay`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="atDay"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="627"
+            column="41"
+            startOffset="25998"
+            endLine="627"
+            endColumn="53"
+            endOffset="26010"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#atEndOfMonth`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="atEndOfMonth"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="628"
+            column="38"
+            startOffset="26050"
+            endLine="628"
+            endColumn="51"
+            endOffset="26063"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#lengthOfMonth`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="lengthOfMonth"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="629"
+            column="42"
+            startOffset="26107"
+            endLine="629"
+            endColumn="51"
+            endOffset="26116"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDate#getDayOfWeek`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getDayOfWeek"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDate"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="629"
+            column="52"
+            startOffset="26117"
+            endLine="629"
+            endColumn="57"
+            endOffset="26122"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.DayOfWeek#getValue`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getValue"/>
+            <entry
+                name="owner"
+                string="java.time.DayOfWeek"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="645"
+            column="68"
+            startOffset="26729"
+            endLine="645"
+            endColumn="79"
+            endOffset="26740"/>
+        <map>
+            <entry
+                name="desc"
+                string="(J)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#minusMonths`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="minusMonths"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="653"
+            column="42"
+            startOffset="26992"
+            endLine="653"
+            endColumn="47"
+            endOffset="26997"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#getMonth`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getMonth"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="653"
+            column="48"
+            startOffset="26998"
+            endLine="653"
+            endColumn="62"
+            endOffset="27012"/>
+        <map>
+            <entry
+                name="desc"
+                string="(Ljava.time.format.TextStyle;Ljava.util.Locale;)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.Month#getDisplayName`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getDisplayName"/>
+            <entry
+                name="owner"
+                string="java.time.Month"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="653"
+            column="63"
+            startOffset="27013"
+            endLine="653"
+            endColumn="94"
+            endOffset="27044"/>
+        <map>
+            <entry
+                name="message"
+                string="Field requires API level 26 (current min is %1$s): `java.time.format.TextStyle#FULL`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="FULL"/>
+            <entry
+                name="owner"
+                string="java.time.format.TextStyle"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="653"
+            column="144"
+            startOffset="27094"
+            endLine="653"
+            endColumn="148"
+            endOffset="27098"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#getYear`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="getYear"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="658"
+            column="68"
+            startOffset="27303"
+            endLine="658"
+            endColumn="78"
+            endOffset="27313"/>
+        <map>
+            <entry
+                name="desc"
+                string="(J)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#plusMonths`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="plusMonths"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="696"
+            column="58"
+            startOffset="28796"
+            endLine="696"
+            endColumn="63"
+            endOffset="28801"/>
+        <map>
+            <entry
+                name="desc"
+                string="(I)"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.YearMonth#atDay`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="atDay"/>
+            <entry
+                name="owner"
+                string="java.time.YearMonth"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NewApi"
+        severity="error"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="26-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/ui/screens/plantel/PlantelScreen.kt"
+            line="698"
+            column="39"
+            startOffset="28928"
+            endLine="698"
+            endColumn="50"
+            endOffset="28939"/>
+        <map>
+            <entry
+                name="desc"
+                string="()"/>
+            <entry
+                name="message"
+                string="Call requires API level 26 (current min is %1$s): `java.time.LocalDateTime#toLocalDate`"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <entry
+                name="name"
+                string="toLocalDate"/>
+            <entry
+                name="owner"
+                string="java.time.LocalDateTime"/>
+            <api-levels id="requiresApi"
+                value="26-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NotificationPermission"
+        severity="error"
+        message="When targeting Android 13 or higher, posting a permission requires holding the `POST_NOTIFICATIONS` permission">
+        <fix-data missing="android.permission.POST_NOTIFICATIONS"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/cl/duoc/app/notifications/NotificationHelper.kt"
+            line="58"
+            column="13"
+            startOffset="2754"
+            endLine="58"
+            endColumn="72"
+            endOffset="2813"/>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="24-∞" requiresApi="33-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="38"
+            column="13"
+            startOffset="1651"
+            endLine="38"
+            endColumn="55"
+            endOffset="1693"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `enableOnBackInvokedCallback` is only used in API level 33 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="24-∞"/>
+            <api-levels id="requiresApi"
+                value="33-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="LockedOrientationActivity"
+        severity="warning"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices">
+        <fix-attribute
+            description="Set screenOrientation=&quot;fullSensor&quot;"
+            robot="true"
+            independent="true"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="screenOrientation"
+            value="fullSensor"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="35"
+            column="13"
+            startOffset="1465"
+            endLine="35"
+            endColumn="49"
+            endOffset="1501"/>
+        <map>
+            <condition library="false"/>
+        </map>
+    </incident>
+
+</incidents>

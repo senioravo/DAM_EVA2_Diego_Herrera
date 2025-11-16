@@ -27,6 +27,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         
+        // Inicializar canal de notificaciones
+        cl.duoc.app.notifications.NotificationHelper.createNotificationChannel(this)
+        
+        // Solicitar permisos de notificación (Android 13+)
+        if (!cl.duoc.app.notifications.NotificationPermissionHelper.hasNotificationPermission(this)) {
+            cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
+        }
+        
+        // Log para MIUI
+        if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
+            Log.d("MainActivity", "Dispositivo MIUI detectado")
+        }
+        
         // Configurar refresh rate alto ANTES de setContent
         setupHighRefreshRate()
         

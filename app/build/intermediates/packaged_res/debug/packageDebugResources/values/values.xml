@@ -3,6 +3,7 @@
     <bool name="config_disableFrameRateLimit">true</bool>
     <bool name="config_highRefreshRate">true</bool>
     <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#a8e05d</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_description">Tu compañero ideal para el cuidado de plantas</string>
     <string name="app_name">Plant Buddy</string>
