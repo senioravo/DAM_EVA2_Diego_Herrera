@@ -96,6 +96,9 @@ dependencies {
     
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    
+    // DataStore para almacenamiento de preferencias
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     // Debug tools
     debugImplementation(libs.androidx.compose.ui.tooling)

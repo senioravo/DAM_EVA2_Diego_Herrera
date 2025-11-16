@@ -27,6 +27,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         
+        // Inicializar canal de notificaciones
+        cl.duoc.app.notifications.NotificationHelper.createNotificationChannel(this)
+        
+        // Solicitar permisos de notificación
+        cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
+        
+        // Log para detectar MIUI
+        if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
+            Log.d("MainActivity", "Dispositivo MIUI detectado")
+        }
+        
         // Configurar refresh rate alto ANTES de setContent
         setupHighRefreshRate()
         
@@ -231,12 +242,21 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlantBuddyApp() {
+    val context = androidx.compose.ui.platform.LocalContext.current
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     
-    // Ocultar TopBar y BottomBar en la pantalla de login
-    val showBars = currentRoute != Screen.Login.route
+    // Inicializar ViewModels
+    val authViewModel = androidx.compose.runtime.remember {
+        cl.duoc.app.ui.viewmodel.AuthViewModel(context)
+    }
+    val settingsViewModel = androidx.compose.runtime.remember {
+        cl.duoc.app.ui.viewmodel.SettingsViewModel(context)
+    }
+    
+    // Ocultar TopBar y BottomBar en las pantallas de auth
+    val showBars = currentRoute != Screen.Login.route && currentRoute != Screen.Register.route
     
     Scaffold(
         bottomBar = {
@@ -247,6 +267,8 @@ fun PlantBuddyApp() {
     ) { innerPadding ->
         PlantBuddyNavigation(
             navController = navController,
+            authViewModel = authViewModel,
+            settingsViewModel = settingsViewModel,
             modifier = if (showBars) Modifier.padding(top = innerPadding.calculateTopPadding()) else Modifier
         )
     }

@@ -3007,6 +3007,7 @@ drawable kniphofia_uvaria
 drawable laurel_flor_enano
 drawable lavanda_dentata
 drawable logo
+drawable logo_plant_buddy_1500
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password

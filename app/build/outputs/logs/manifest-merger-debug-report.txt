@@ -73,7 +73,9 @@ MERGED from [androidx.activity:activity-compose:1.10.1] C:\Users\mastih\.gradle\
 MERGED from [androidx.activity:activity:1.10.1] C:\Users\mastih\.gradle\caches\8.13\transforms\6e205f555b863f13ccf4ec96f577e33c\transformed\activity-1.10.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\f3c4a98e14d3e8e42eb0bc9961de2fa0\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\64da5c1b3f980613ef345c5106d68bc6\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\mastih\.gradle\caches\8.13\transforms\0c58bca057087bdced6b209df4df4b9e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
@@ -330,8 +332,12 @@ MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mas
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\f3c4a98e14d3e8e42eb0bc9961de2fa0\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\64da5c1b3f980613ef345c5106d68bc6\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
