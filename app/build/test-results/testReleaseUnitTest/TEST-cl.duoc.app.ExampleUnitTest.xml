@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cl.duoc.app.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-16T20:28:50.709Z" hostname="SELAH" time="0.007">
+  <properties/>
+  <testcase name="addition_isCorrect" classname="cl.duoc.app.ExampleUnitTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

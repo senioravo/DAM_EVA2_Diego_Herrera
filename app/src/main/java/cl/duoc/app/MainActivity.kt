@@ -30,10 +30,19 @@ class MainActivity : ComponentActivity() {
         // Inicializar canal de notificaciones
         cl.duoc.app.notifications.NotificationHelper.createNotificationChannel(this)
         
+<<<<<<< HEAD
         // Solicitar permisos de notificación
         cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
         
         // Log para detectar MIUI
+=======
+        // Solicitar permisos de notificación (Android 13+)
+        if (!cl.duoc.app.notifications.NotificationPermissionHelper.hasNotificationPermission(this)) {
+            cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
+        }
+        
+        // Log para MIUI
+>>>>>>> origin/main
         if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
             Log.d("MainActivity", "Dispositivo MIUI detectado")
         }

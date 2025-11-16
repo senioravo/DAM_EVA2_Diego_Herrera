@@ -103,7 +103,8 @@ fun CatalogScreen(
                 ProductGrid(
                     products = estado.filteredProducts,
                     gridState = gridState,
-                    topPadding = 240.dp // Espacio para toolbar + contador
+                    topPadding = 240.dp, // Espacio para toolbar + contador
+                    onAddToPlantel = viewModel::addToPlantel
                 )
             }
         }
@@ -236,7 +237,8 @@ fun CategoryFilters(
 fun ProductGrid(
     products: List<Product>,
     gridState: androidx.compose.foundation.lazy.grid.LazyGridState,
-    topPadding: androidx.compose.ui.unit.Dp = 0.dp
+    topPadding: androidx.compose.ui.unit.Dp = 0.dp,
+    onAddToPlantel: (Product) -> Unit = {}
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -252,7 +254,10 @@ fun ProductGrid(
         flingBehavior = androidx.compose.foundation.gestures.ScrollableDefaults.flingBehavior()
     ) {
         items(products, key = { it.id }) { product ->
-            ProductCard(product = product)
+            ProductCard(
+                product = product,
+                onAddToPlantel = onAddToPlantel
+            )
         }
     }
 }
@@ -310,7 +315,10 @@ fun ProductImage(
 }
 
 @Composable
-fun ProductCard(product: Product) {
+fun ProductCard(
+    product: Product,
+    onAddToPlantel: (Product) -> Unit = {}
+) {
     var quantity by remember { mutableStateOf(1) }
     
     Card(
@@ -487,7 +495,7 @@ fun ProductCard(product: Product) {
                                     color = MaterialTheme.colorScheme.primary,
                                     shape = RoundedCornerShape(4.dp)
                                 )
-                                .clickable { /* TODO: Agregar al plantel */ },
+                                .clickable { onAddToPlantel(product) },
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(

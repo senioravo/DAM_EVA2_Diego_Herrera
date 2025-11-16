@@ -104,11 +104,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     
                     Spacer(modifier = Modifier.height(16.dp))
                     
-                    // Icono de logo (placeholder)
-                    Icon(
-                        imageVector = Icons.Default.LocalFlorist,
+                    // Logo de Plant Buddy
+                    Image(
+                        painter = painterResource(id = R.drawable.logo_plant_buddy_black_transparent),
                         contentDescription = "Logo de Plant Buddy",
-                        tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(145.dp)
                     )
                 }

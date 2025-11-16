@@ -3,6 +3,8 @@ package cl.duoc.app.ui.screens.catalog
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.duoc.app.data.repository.ProductRepository
+import cl.duoc.app.data.repository.PlantelRepository
+import cl.duoc.app.data.model.Product
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -10,7 +12,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class CatalogViewModel(
-    private val repository: ProductRepository = ProductRepository()
+    private val repository: ProductRepository = ProductRepository(),
+    private val plantelRepository: PlantelRepository = PlantelRepository.getInstance()
 ) : ViewModel() {
     
     private val _estado = MutableStateFlow(CatalogUIState())
@@ -106,6 +109,12 @@ class CatalogViewModel(
                 lastScrollIndex = firstVisibleIndex,
                 lastScrollOffset = firstVisibleOffset
             )
+        }
+    }
+    
+    fun addToPlantel(product: Product) {
+        viewModelScope.launch {
+            plantelRepository.addPlantToPlantel(product)
         }
     }
 }

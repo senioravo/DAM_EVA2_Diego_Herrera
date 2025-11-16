@@ -12,8 +12,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 object NotificationPermissionHelper {
+<<<<<<< HEAD
     
     private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 100
+=======
+    const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
+>>>>>>> origin/main
     
     fun hasNotificationPermission(context: Context): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -22,12 +26,17 @@ object NotificationPermissionHelper {
                 Manifest.permission.POST_NOTIFICATIONS
             ) == PackageManager.PERMISSION_GRANTED
         } else {
+<<<<<<< HEAD
             true // Versiones anteriores no requieren permiso explícito
+=======
+            true // En versiones anteriores a Android 13, el permiso se otorga automáticamente
+>>>>>>> origin/main
         }
     }
     
     fun requestNotificationPermission(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+<<<<<<< HEAD
             if (!hasNotificationPermission(activity)) {
                 ActivityCompat.requestPermissions(
                     activity,
@@ -35,11 +44,19 @@ object NotificationPermissionHelper {
                     NOTIFICATION_PERMISSION_REQUEST_CODE
                 )
             }
+=======
+            ActivityCompat.requestPermissions(
+                activity,
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                NOTIFICATION_PERMISSION_REQUEST_CODE
+            )
+>>>>>>> origin/main
         }
     }
     
     fun openNotificationSettings(context: Context) {
         try {
+<<<<<<< HEAD
             val intent = Intent()
             if (isMIUI()) {
                 // Intento específico para MIUI
@@ -62,10 +79,37 @@ object NotificationPermissionHelper {
                 context.startActivity(intent)
             } catch (fallbackException: Exception) {
                 fallbackException.printStackTrace()
+=======
+            // Intentar abrir configuración específica de la app
+            val intent = Intent().apply {
+                when {
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                        action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+                        putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                    }
+                    else -> {
+                        action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                        data = Uri.fromParts("package", context.packageName, null)
+                    }
+                }
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            // Fallback: abrir configuración general
+            try {
+                val intent = Intent(Settings.ACTION_SETTINGS).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                }
+                context.startActivity(intent)
+            } catch (ex: Exception) {
+                android.util.Log.e("NotificationPermissionHelper", "No se pudo abrir configuración", ex)
+>>>>>>> origin/main
             }
         }
     }
     
+<<<<<<< HEAD
     fun isMIUI(): Boolean {
         return try {
             val property = getSystemProperty("ro.miui.ui.version.name")
@@ -81,6 +125,18 @@ object NotificationPermissionHelper {
             val systemPropertiesClass = Class.forName("android.os.SystemProperties")
             val getMethod = systemPropertiesClass.getMethod("get", String::class.java)
             getMethod.invoke(null, key) as? String
+=======
+    // Específico para MIUI: Verificar si la app tiene permisos de autostart
+    fun isMIUI(): Boolean {
+        return !getSystemProperty("ro.miui.ui.version.name").isNullOrEmpty()
+    }
+    
+    private fun getSystemProperty(key: String): String? {
+        return try {
+            val props = Class.forName("android.os.SystemProperties")
+            val get = props.getMethod("get", String::class.java)
+            get.invoke(props, key) as? String
+>>>>>>> origin/main
         } catch (e: Exception) {
             null
         }
