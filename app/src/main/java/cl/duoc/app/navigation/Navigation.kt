@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import cl.duoc.app.ui.screens.HomeScreen
 import cl.duoc.app.ui.screens.AjustesScreen
-import cl.duoc.app.ui.screens.plantel.PlantelScreen
+import cl.duoc.app.ui.screens.PlantelScreen
 import cl.duoc.app.ui.screens.auth.LoginScreen
 import cl.duoc.app.ui.screens.auth.RegisterScreen
 import cl.duoc.app.ui.screens.catalog.CatalogScreen
@@ -72,13 +72,7 @@ fun PlantBuddyNavigation(
         }
         
         composable(Screen.Plantel.route) {
-            val plantelViewModel = androidx.compose.runtime.remember { 
-                cl.duoc.app.ui.screens.plantel.PlantelViewModel() 
-            }
-            cl.duoc.app.ui.screens.plantel.PlantelScreen(
-                modifier = modifier,
-                viewModel = plantelViewModel
-            )
+            PlantelScreen(modifier = modifier)
         }
         
         composable(Screen.Ajustes.route) {

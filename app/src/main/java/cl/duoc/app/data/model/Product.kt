@@ -8,6 +8,5 @@ data class Product(
     val category: String,
     val imageUrl: String,
     val stock: Int = 0,
-    val rating: Float = 0f,
-    val wateringCycleDays: Int = 7 // Días entre riegos (por defecto 7 días)
+    val rating: Float = 0f
 )

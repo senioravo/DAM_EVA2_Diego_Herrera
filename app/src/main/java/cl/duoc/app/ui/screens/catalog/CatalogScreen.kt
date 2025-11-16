@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.LocalFlorist
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Search
@@ -313,8 +312,6 @@ fun ProductImage(
 @Composable
 fun ProductCard(product: Product) {
     var quantity by remember { mutableStateOf(1) }
-    val context = LocalContext.current
-    var isInPlantel by remember { mutableStateOf(cl.duoc.app.data.repository.PlantelRepository.isInPlantel(product.id)) }
     
     Card(
         modifier = Modifier
@@ -487,40 +484,15 @@ fun ProductCard(product: Product) {
                             modifier = Modifier
                                 .size(32.dp)
                                 .background(
-                                    color = if (isInPlantel) 
-                                        MaterialTheme.colorScheme.tertiary 
-                                    else 
-                                        MaterialTheme.colorScheme.primary,
+                                    color = MaterialTheme.colorScheme.primary,
                                     shape = RoundedCornerShape(4.dp)
                                 )
-                                .clickable { 
-                                    if (!isInPlantel) {
-                                        cl.duoc.app.data.repository.PlantelRepository.addPlant(product)
-                                        isInPlantel = true
-                                        android.widget.Toast.makeText(
-                                            context,
-                                            "${product.name} agregado al plantel",
-                                            android.widget.Toast.LENGTH_SHORT
-                                        ).show()
-                                    } else {
-                                        android.widget.Toast.makeText(
-                                            context,
-                                            "${product.name} ya está en tu plantel",
-                                            android.widget.Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                },
+                                .clickable { /* TODO: Agregar al plantel */ },
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
-                                imageVector = if (isInPlantel) 
-                                    Icons.Default.Check 
-                                else 
-                                    Icons.Default.LocalFlorist,
-                                contentDescription = if (isInPlantel) 
-                                    "En plantel" 
-                                else 
-                                    "Agregar al plantel",
+                                imageVector = Icons.Default.LocalFlorist,
+                                contentDescription = "Agregar al plantel",
                                 tint = MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.size(14.dp)
                             )
