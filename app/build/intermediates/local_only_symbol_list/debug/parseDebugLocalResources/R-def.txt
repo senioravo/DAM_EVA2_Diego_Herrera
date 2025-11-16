@@ -14,11 +14,8 @@ drawable laurel_flor_enano
 drawable lavanda_dentata
 drawable logo
 drawable logo_plant_buddy_1500
-<<<<<<< HEAD
-=======
 drawable logo_plant_buddy_black_transparent
 drawable logo_plant_buddy_transparent
->>>>>>> origin/main
 drawable pitosporo_tobira_enano
 drawable plant_home_screen
 drawable rhus_crenata

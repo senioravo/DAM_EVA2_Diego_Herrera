@@ -1,6 +1,7 @@
 package cl.duoc.app.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -25,16 +26,22 @@ fun PlantBuddyNavigation(
 ) {
     val authState by authViewModel.authState.collectAsState()
     
-    // Determinar la ruta inicial según el estado de autenticación
-    val startDestination = if (authState.isLoggedIn) Screen.Home.route else Screen.Login.route
-    
     NavHost(
         navController = navController,
-        startDestination = startDestination,
+        startDestination = Screen.Login.route,
         modifier = modifier
     ) {
         // Pantallas de autenticación
         composable(Screen.Login.route) {
+            // Navegar automáticamente al Home si ya está autenticado
+            LaunchedEffect(authState.isLoggedIn) {
+                if (authState.isLoggedIn) {
+                    navController.navigate(Screen.Home.route) {
+                        popUpTo(Screen.Login.route) { inclusive = true }
+                    }
+                }
+            }
+            
             LoginScreen(
                 authViewModel = authViewModel,
                 onLoginSuccess = {

@@ -30,21 +30,18 @@ class MainActivity : ComponentActivity() {
         // Inicializar canal de notificaciones
         cl.duoc.app.notifications.NotificationHelper.createNotificationChannel(this)
         
-<<<<<<< HEAD
-        // Solicitar permisos de notificación
-        cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
-        
-        // Log para detectar MIUI
-=======
         // Solicitar permisos de notificación (Android 13+)
         if (!cl.duoc.app.notifications.NotificationPermissionHelper.hasNotificationPermission(this)) {
             cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
         }
         
-        // Log para MIUI
->>>>>>> origin/main
-        if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
-            Log.d("MainActivity", "Dispositivo MIUI detectado")
+        // Log para detectar MIUI
+        try {
+            if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
+                Log.d("MainActivity", "Dispositivo MIUI detectado")
+            }
+        } catch (e: Exception) {
+            Log.d("MainActivity", "No se pudo detectar MIUI")
         }
         
         // Configurar refresh rate alto ANTES de setContent
@@ -106,7 +103,8 @@ class MainActivity : ComponentActivity() {
                 window.addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED)
                 
                 // PASO 0.5: Verificar soporte de alto refresh rate
-                val hasHighRefreshRate = display?.supportedModes?.any { 
+                val currentDisplay = windowManager.defaultDisplay
+                val hasHighRefreshRate = currentDisplay?.supportedModes?.any { 
                     it.refreshRate >= 90f 
                 } ?: false
                 Log.d("RefreshRate", "Soporte de alto refresh rate: $hasHighRefreshRate")
