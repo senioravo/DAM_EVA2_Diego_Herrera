@@ -1,0 +1,23 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable logo
+drawable plant_home_screen
+id main
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_description
+string app_name
+string coming_soon
+string nav_care
+string nav_catalog
+string nav_home
+string welcome_message
+style Base.Theme.Appkotlinbase
+style Theme.Appkotlinbase
+xml backup_rules
+xml data_extraction_rules

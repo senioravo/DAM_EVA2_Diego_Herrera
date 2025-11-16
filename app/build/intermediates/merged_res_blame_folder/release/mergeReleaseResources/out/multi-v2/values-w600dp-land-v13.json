@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "cl.duoc.app-mergeReleaseResources-64:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\mastih\\.gradle\\caches\\8.13\\transforms\\4f6ba9108fad03134a3969a2f47921c5\\transformed\\material-1.10.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    }
+                }
+            ]
+        }
+    ]
+}
