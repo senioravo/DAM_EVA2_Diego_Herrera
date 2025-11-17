@@ -29,6 +29,9 @@ class AuthViewModel(
     private val _authState = MutableStateFlow(AuthState())
     val authState: StateFlow<AuthState> = _authState.asStateFlow()
     
+    // Exponer las sesiones guardadas
+    val savedSessions = userPreferences.savedSessions
+    
     init {
         checkLoginStatus()
     }
@@ -53,14 +56,21 @@ class AuthViewModel(
         }
     }
     
-    fun login(email: String, password: String) {
+    fun login(email: String, password: String, rememberSession: Boolean = false) {
         viewModelScope.launch {
             _authState.value = _authState.value.copy(isLoading = true, error = null)
             
             try {
                 val user = userRepository.login(email, password)
                 if (user != null) {
+                    // Guardar sesión actual
                     userPreferences.saveUserSession(user.id, user.email)
+                    
+                    // Guardar credenciales si el usuario lo solicitó
+                    if (rememberSession) {
+                        userPreferences.saveSession(email, password)
+                    }
+                    
                     _authState.value = AuthState(
                         isLoggedIn = true,
                         currentUser = user,
@@ -115,6 +125,16 @@ class AuthViewModel(
                     isLoading = false,
                     error = e.message ?: "Error al registrar"
                 )
+            }
+        }
+    }
+    
+    fun removeSavedSession(email: String) {
+        viewModelScope.launch {
+            try {
+                userPreferences.removeSavedSession(email)
+            } catch (e: Exception) {
+                android.util.Log.e("AuthViewModel", "Error al eliminar sesión guardada", e)
             }
         }
     }

@@ -7,6 +7,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,9 +28,14 @@ fun LoginScreen(
     modifier: Modifier = Modifier
 ) {
     val authState by authViewModel.authState.collectAsState()
+    val savedSessions by authViewModel.savedSessions.collectAsState(initial = emptyList())
+    
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    var rememberSession by remember { mutableStateOf(false) }
+    var showSavedSessions by remember { mutableStateOf(false) }
+    var selectedSessionEmail by remember { mutableStateOf<String?>(null) }
     
     // Navegar automáticamente si el login fue exitoso
     LaunchedEffect(authState.isLoggedIn) {
@@ -90,10 +97,93 @@ fun LoginScreen(
             
             Spacer(modifier = Modifier.height(32.dp))
             
+            // Mostrar sesiones guardadas si existen
+            if (savedSessions.isNotEmpty()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer
+                    )
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Sesiones guardadas",
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold
+                            )
+                            IconButton(onClick = { showSavedSessions = !showSavedSessions }) {
+                                Icon(
+                                    imageVector = if (showSavedSessions) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                                    contentDescription = if (showSavedSessions) "Ocultar" else "Mostrar"
+                                )
+                            }
+                        }
+                        
+                        if (showSavedSessions) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            savedSessions.forEach { (sessionEmail, sessionPassword) ->
+                                OutlinedCard(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 4.dp),
+                                    onClick = {
+                                        email = sessionEmail
+                                        password = sessionPassword
+                                        selectedSessionEmail = sessionEmail
+                                    }
+                                ) {
+                                    Row(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(12.dp),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Icon(
+                                                imageVector = Icons.Default.Person,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(24.dp)
+                                            )
+                                            Spacer(modifier = Modifier.width(12.dp))
+                                            Text(
+                                                text = sessionEmail,
+                                                style = MaterialTheme.typography.bodyMedium
+                                            )
+                                        }
+                                        IconButton(
+                                            onClick = { 
+                                                authViewModel.removeSavedSession(sessionEmail)
+                                            }
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.Close,
+                                                contentDescription = "Eliminar",
+                                                tint = MaterialTheme.colorScheme.error
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+            
             // Email Field
             OutlinedTextField(
                 value = email,
-                onValueChange = { email = it },
+                onValueChange = { 
+                    email = it
+                    selectedSessionEmail = null
+                },
                 label = { Text("Email") },
                 leadingIcon = {
                     Icon(Icons.Default.Email, contentDescription = "Email")
@@ -127,6 +217,24 @@ fun LoginScreen(
                 singleLine = true
             )
             
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // Checkbox: Guardar sesión
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = rememberSession,
+                    onCheckedChange = { rememberSession = it }
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Guardar datos de sesión",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+            
             Spacer(modifier = Modifier.height(8.dp))
             
             // Error Message
@@ -144,7 +252,7 @@ fun LoginScreen(
             // Login Button
             Button(
                 onClick = {
-                    authViewModel.login(email, password)
+                    authViewModel.login(email, password, rememberSession)
                 },
                 modifier = Modifier.fillMaxWidth(),
                 enabled = !authState.isLoading && email.isNotBlank() && password.isNotBlank()
