@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -45,7 +46,11 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
 fun CatalogScreen(
-    viewModel: CatalogViewModel = viewModel()
+    viewModel: CatalogViewModel = viewModel(),
+    cartViewModel: cl.duoc.app.ui.viewmodel.CartViewModel = run {
+        val context = androidx.compose.ui.platform.LocalContext.current
+        androidx.lifecycle.viewmodel.compose.viewModel { cl.duoc.app.ui.viewmodel.CartViewModel(context) }
+    }
 ) {
     val estado by viewModel.estado.collectAsState()
     val gridState = rememberLazyGridState()
@@ -75,8 +80,10 @@ fun CatalogScreen(
                 Brush.linearGradient(
                     colors = listOf(
                         MaterialTheme.colorScheme.primaryContainer,
-                        MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f)
-                    )
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    ),
+                    start = Offset(0f, 1000f),
+                    end = Offset(1000f, 2000f)
                 )
             )
     ) {
@@ -104,7 +111,10 @@ fun CatalogScreen(
                     products = estado.filteredProducts,
                     gridState = gridState,
                     topPadding = 240.dp, // Espacio para toolbar + contador
-                    onAddToPlantel = viewModel::addToPlantel
+                    onAddToPlantel = viewModel::addToPlantel,
+                    onAddToCart = { product, quantity ->
+                        cartViewModel.addToCart(product, quantity)
+                    }
                 )
             }
         }
@@ -238,7 +248,8 @@ fun ProductGrid(
     products: List<Product>,
     gridState: androidx.compose.foundation.lazy.grid.LazyGridState,
     topPadding: androidx.compose.ui.unit.Dp = 0.dp,
-    onAddToPlantel: (Product) -> Unit = {}
+    onAddToPlantel: (Product) -> Unit = {},
+    onAddToCart: (Product, Int) -> Unit = { _, _ -> }
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -256,7 +267,8 @@ fun ProductGrid(
         items(products, key = { it.id }) { product ->
             ProductCard(
                 product = product,
-                onAddToPlantel = onAddToPlantel
+                onAddToPlantel = onAddToPlantel,
+                onAddToCart = onAddToCart
             )
         }
     }
@@ -317,7 +329,8 @@ fun ProductImage(
 @Composable
 fun ProductCard(
     product: Product,
-    onAddToPlantel: (Product) -> Unit = {}
+    onAddToPlantel: (Product) -> Unit = {},
+    onAddToCart: (Product, Int) -> Unit = { _, _ -> }
 ) {
     var quantity by remember { mutableStateOf(1) }
     
@@ -476,7 +489,7 @@ fun ProductCard(
                                     color = MaterialTheme.colorScheme.primary,
                                     shape = RoundedCornerShape(4.dp)
                                 )
-                                .clickable { /* TODO: Agregar al carrito */ },
+                                .clickable { onAddToCart(product, quantity) },
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(

@@ -34,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.verticalScroll
@@ -69,8 +70,10 @@ fun PlantelScreen(
                 Brush.linearGradient(
                     colors = listOf(
                         MaterialTheme.colorScheme.primaryContainer,
-                        MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f)
-                    )
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    ),
+                    start = Offset(0f, 1000f),
+                    end = Offset(1000f, 2000f)
                 )
             )
             .padding(16.dp)

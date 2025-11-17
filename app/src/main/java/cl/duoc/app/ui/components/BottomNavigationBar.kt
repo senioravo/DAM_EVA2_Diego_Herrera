@@ -5,6 +5,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Spa
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -34,6 +35,7 @@ fun BottomNavigationBar(navController: NavController, currentRouteOverride: Stri
     val items = listOf(
         NavigationItem(Screen.Home.route, Icons.Default.Home, "Home"),
         NavigationItem(Screen.Catalogo.route, Icons.AutoMirrored.Filled.List, "Catalogo"),
+        NavigationItem(Screen.Cart.route, Icons.Default.ShoppingCart, "Carrito"),
         NavigationItem(Screen.Plantel.route, Icons.Default.Spa, "Plantel"),
         NavigationItem(Screen.Ajustes.route, Icons.Default.Settings, "Ajustes")
     )

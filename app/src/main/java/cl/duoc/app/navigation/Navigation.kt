@@ -88,6 +88,10 @@ fun PlantBuddyNavigation(
             CatalogScreen()
         }
         
+        composable(Screen.Cart.route) {
+            cl.duoc.app.ui.screens.cart.CartScreen(modifier = modifier)
+        }
+        
         composable(Screen.Plantel.route) {
             PlantelScreen(modifier = modifier)
         }
