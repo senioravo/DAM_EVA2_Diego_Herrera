@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,6 +35,9 @@ class MainActivity : ComponentActivity() {
         if (!cl.duoc.app.notifications.NotificationPermissionHelper.hasNotificationPermission(this)) {
             cl.duoc.app.notifications.NotificationPermissionHelper.requestNotificationPermission(this)
         }
+        
+        // Solicitar permisos de almacenamiento para galería
+        requestStoragePermissions()
         
         // Log para MIUI
         if (cl.duoc.app.notifications.NotificationPermissionHelper.isMIUI()) {
@@ -58,9 +62,7 @@ class MainActivity : ComponentActivity() {
         }
         
         setContent {
-            PlantBuddyTheme {
-                PlantBuddyApp()
-            }
+            PlantBuddyThemeWrapper()
         }
     }
     
@@ -90,6 +92,32 @@ class MainActivity : ComponentActivity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
     
+    private fun requestStoragePermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Android 13+ usa READ_MEDIA_IMAGES
+            if (checkSelfPermission(android.Manifest.permission.READ_MEDIA_IMAGES) != 
+                android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(
+                    arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES),
+                    REQUEST_CODE_STORAGE
+                )
+            }
+        } else {
+            // Android 12 y anteriores usan READ_EXTERNAL_STORAGE
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != 
+                android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(
+                    arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                    REQUEST_CODE_STORAGE
+                )
+            }
+        }
+    }
+    
+    companion object {
+        private const val REQUEST_CODE_STORAGE = 100
+    }
+    
     @Suppress("DEPRECATION")
     private fun setupHighRefreshRate() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -99,8 +127,9 @@ class MainActivity : ComponentActivity() {
                 window.addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED)
                 
                 // PASO 0.5: Verificar soporte de alto refresh rate
-                val hasHighRefreshRate = display?.supportedModes?.any { 
-                    it.refreshRate >= 90f 
+                val currentDisplay = windowManager.defaultDisplay
+                val hasHighRefreshRate = currentDisplay?.supportedModes?.any { 
+                    it.refreshRate >= 120f
                 } ?: false
                 Log.d("RefreshRate", "Soporte de alto refresh rate: $hasHighRefreshRate")
                 
@@ -241,15 +270,41 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun PlantBuddyThemeWrapper() {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val userPreferences = androidx.compose.runtime.remember { 
+        cl.duoc.app.data.preferences.UserPreferences(context) 
+    }
+    
+    // Observar el modo oscuro desde DataStore
+    val isDarkMode by userPreferences.isDarkModeEnabled.collectAsState(initial = false)
+    
+    PlantBuddyTheme(darkTheme = isDarkMode) {
+        PlantBuddyApp()
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlantBuddyApp() {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    
+    // Inicializar ViewModels
+    val authViewModel = androidx.compose.runtime.remember { 
+        cl.duoc.app.ui.viewmodel.AuthViewModel(context) 
+    }
+    val settingsViewModel = androidx.compose.runtime.remember { 
+        cl.duoc.app.ui.viewmodel.SettingsViewModel(context) 
+    }
+    
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     
-    // Ocultar TopBar y BottomBar en la pantalla de login
-    val showBars = currentRoute != Screen.Login.route
+    // Ocultar BottomBar en pantallas de autenticación
+    val showBars = currentRoute != Screen.Login.route && currentRoute != Screen.Register.route
+    
     
     Scaffold(
         bottomBar = {
@@ -260,6 +315,8 @@ fun PlantBuddyApp() {
     ) { innerPadding ->
         PlantBuddyNavigation(
             navController = navController,
+            authViewModel = authViewModel,
+            settingsViewModel = settingsViewModel,
             modifier = if (showBars) Modifier.padding(top = innerPadding.calculateTopPadding()) else Modifier
         )
     }

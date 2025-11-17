@@ -62,7 +62,7 @@ fun PlantelScreen(
         estado.plants.find { it.product.id == id }
     }
     
-    Box(
+    Column(
         modifier = modifier
             .fillMaxSize()
             .background(
@@ -73,12 +73,8 @@ fun PlantelScreen(
                     )
                 )
             )
+            .padding(16.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
             // Título
             Text(
                 text = "Mi Plantel",
@@ -122,10 +118,10 @@ fun PlantelScreen(
                     )
                 }
             }
-        }
-        
-        // Diálogo de detalles con animación
-        AnimatedVisibility(
+    }
+    
+    // Diálogo de detalles con animación
+    AnimatedVisibility(
             visible = selectedPlant != null,
             enter = fadeIn(animationSpec = tween(300)) + scaleIn(
                 initialScale = 0.8f,
@@ -151,7 +147,6 @@ fun PlantelScreen(
                     }
                 )
             }
-        }
     }
 }
 

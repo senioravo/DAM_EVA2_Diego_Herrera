@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-54:12
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:2:1-57:12
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\mastih\.gradle\caches\8.13\transforms\4f6ba9108fad03134a3969a2f47921c5\transformed\material-1.10.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\mastih\.gradle\caches\8.13\transforms\7c8f5229cae16114df6d0524eb1bbe41\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [io.coil-kt:coil-compose:2.5.0] C:\Users\mastih\.gradle\caches\8.13\transforms\dc8daff779d7771b0fb2a94469b5ef48\transformed\coil-compose-2.5.0\AndroidManifest.xml:2:1-7:12
@@ -73,7 +73,9 @@ MERGED from [androidx.activity:activity-compose:1.10.1] C:\Users\mastih\.gradle\
 MERGED from [androidx.activity:activity:1.10.1] C:\Users\mastih\.gradle\caches\8.13\transforms\6e205f555b863f13ccf4ec96f577e33c\transformed\activity-1.10.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\f3c4a98e14d3e8e42eb0bc9961de2fa0\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\64da5c1b3f980613ef345c5106d68bc6\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\mastih\.gradle\caches\8.13\transforms\0c58bca057087bdced6b209df4df4b9e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
@@ -119,9 +121,19 @@ uses-permission#android.permission.USE_EXACT_ALARM
 ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:9:5-74
 	android:name
 		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:9:22-71
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:10:5-76
+	android:name
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:10:22-73
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:11:5-12:38
+	android:maxSdkVersion
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:12:9-35
+	android:name
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:11:22-77
 application
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:11:5-52:19
-INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:11:5-52:19
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:14:5-55:19
+INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:14:5-55:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\mastih\.gradle\caches\8.13\transforms\4f6ba9108fad03134a3969a2f47921c5\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\mastih\.gradle\caches\8.13\transforms\4f6ba9108fad03134a3969a2f47921c5\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\mastih\.gradle\caches\8.13\transforms\7c8f5229cae16114df6d0524eb1bbe41\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -145,69 +157,69 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ma
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\4b6239db5952463689d9d5a165aca788\transformed\core-1.17.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:21:9-35
 	android:label
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:16:9-41
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:19:9-41
 	android:hardwareAccelerated
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:20:9-43
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:23:9-43
 	android:fullBackupContent
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:14:9-54
-	android:roundIcon
 		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:17:9-54
+	android:roundIcon
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:20:9-54
 	android:icon
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:18:9-43
 	android:allowBackup
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:19:9-51
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:22:9-51
 	android:dataExtractionRules
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:13:9-65
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:16:9-65
 meta-data#android.max_aspect
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:23:9-25:35
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:26:9-28:35
 	android:value
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:25:13-32
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:28:13-32
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:24:13-46
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:27:13-46
 meta-data#android.app.max_fps
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:28:9-30:35
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:31:9-33:35
 	android:value
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:30:13-32
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:33:13-32
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:29:13-47
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:32:13-47
 activity#cl.duoc.app.MainActivity
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:32:9-45:20
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:35:9-48:20
 	android:screenOrientation
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:35:13-49
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:38:13-49
 	android:hardwareAccelerated
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:37:13-47
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:40:13-47
 	android:windowSoftInputMode
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:39:13-55
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:42:13-55
 	android:exported
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:34:13-36
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:37:13-36
 	android:configChanges
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:36:13-87
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:39:13-87
 	android:enableOnBackInvokedCallback
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:38:13-55
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:41:13-55
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:33:13-41
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:36:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:40:13-44:29
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:41:17-69
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:41:25-66
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:43:17-77
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:43:27-74
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:46:27-74
 receiver#cl.duoc.app.notifications.WateringReminderReceiver
-ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:48:9-51:40
+ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:51:9-54:40
 	android:enabled
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:50:13-35
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:53:13-35
 	android:exported
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:51:13-37
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:54:13-37
 	android:name
-		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:49:13-67
+		ADDED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml:52:13-67
 uses-sdk
 INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mastih\Downloads\DAM_EVA2\DAM_EVA2_Diego_Herrera\app\src\main\AndroidManifest.xml
@@ -350,8 +362,12 @@ MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mas
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\f3c4a98e14d3e8e42eb0bc9961de2fa0\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\mastih\.gradle\caches\8.13\transforms\11a1853c561ae135571982b8240b6dee\transformed\core-ktx-1.17.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\8fdf7fd7cbd962095d4e7bcd528f7996\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\06c7eb514c7ba7b9f9f13dd579e4908b\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\1c4bbb793ef05cc039b0e663f72ea14e\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\397e2afa9bfe84b92a8361ff3b6ea2e6\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\mastih\.gradle\caches\8.13\transforms\64da5c1b3f980613ef345c5106d68bc6\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44

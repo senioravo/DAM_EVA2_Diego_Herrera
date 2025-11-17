@@ -1,122 +1,122 @@
 [
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_logo_plant_buddy_1500.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\logo_plant_buddy_1500.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_bignonia_naranja.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/bignonia_naranja.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_rhus_crenata.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\rhus_crenata.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_lavanda_dentata.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/lavanda_dentata.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_viburnum_lucidum.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\viburnum_lucidum.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\xml\\data_extraction_rules.xml"
+        "merged": "cl.duoc.app-debug-71:/drawable_logo.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/logo.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_pitosporo_tobira_enano.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\pitosporo_tobira_enano.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_logo_plant_buddy_1500.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/logo_plant_buddy_1500.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "cl.duoc.app-debug-71:/drawable_laurel_flor_enano.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/laurel_flor_enano.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_lavanda_dentata.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\lavanda_dentata.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_bignonia_naranja.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\bignonia_naranja.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_logo_plant_buddy_transparent.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\logo_plant_buddy_transparent.png"
+        "merged": "cl.duoc.app-debug-71:/xml_data_extraction_rules.xml.flat",
+        "source": "cl.duoc.app-main-73:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_kniphofia_uvaria.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\kniphofia_uvaria.png"
+        "merged": "cl.duoc.app-debug-71:/layout_activity_main.xml.flat",
+        "source": "cl.duoc.app-main-73:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\ic_launcher_background.xml"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_rhus_crenata.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/rhus_crenata.png"
     },
     {
-        "merged": "cl.duoc.app-debug-69:/drawable_logo_plant_buddy_black_transparent.png.flat",
-        "source": "cl.duoc.app-main-71:/drawable/logo_plant_buddy_black_transparent.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "cl.duoc.app-debug-71:/drawable_plant_home_screen.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/plant_home_screen.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_ficus_lyrata_bambino.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/ficus_lyrata_bambino.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_plant_home_screen.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\plant_home_screen.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_logo.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\logo.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_logo_plant_buddy_black_transparent.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/logo_plant_buddy_black_transparent.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "cl.duoc.app-debug-71:/xml_backup_rules.xml.flat",
+        "source": "cl.duoc.app-main-73:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_logo_plant_buddy_transparent.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/logo_plant_buddy_transparent.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\layout\\activity_main.xml"
+        "merged": "cl.duoc.app-debug-71:/drawable_ic_launcher_background.xml.flat",
+        "source": "cl.duoc.app-main-73:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\xml\\backup_rules.xml"
+        "merged": "cl.duoc.app-debug-71:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "cl.duoc.app-main-73:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_viburnum_lucidum.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/viburnum_lucidum.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_laurel_flor_enano.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\laurel_flor_enano.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_kniphofia_uvaria.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/kniphofia_uvaria.png"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "cl.duoc.app-main-73:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-debug-69:\\drawable_ficus_lyrata_bambino.png.flat",
-        "source": "C:\\Users\\mastih\\.gradle\\daemon\\8.13\\cl.duoc.app-main-71:\\drawable\\ficus_lyrata_bambino.png"
+        "merged": "cl.duoc.app-debug-71:/drawable_pitosporo_tobira_enano.png.flat",
+        "source": "cl.duoc.app-main-73:/drawable/pitosporo_tobira_enano.png"
     }
 ]
