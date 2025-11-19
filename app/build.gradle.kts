@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.27"
 }
 
 android {
@@ -99,6 +100,15 @@ dependencies {
     
     // DataStore para almacenamiento de preferencias
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+    
+    // Room Database
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    
+    // Gson para serialización (usado en Room)
+    implementation("com.google.code.gson:gson:2.10.1")
 
     // Debug tools
     debugImplementation(libs.androidx.compose.ui.tooling)
