@@ -38,8 +38,8 @@ fun LoginScreen(
             .background(
                 Brush.linearGradient(
                     colors = listOf(
-                        MaterialTheme.colorScheme.onPrimaryContainer,
-                        MaterialTheme.colorScheme.primaryContainer
+                        MaterialTheme.colorScheme.primaryContainer,
+                        MaterialTheme.colorScheme.onPrimaryContainer
                     ),
                     start = Offset(0f, 1000f),
                     end = Offset(1000f, 2000f)
