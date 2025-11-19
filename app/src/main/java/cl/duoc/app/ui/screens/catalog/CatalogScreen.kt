@@ -30,8 +30,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
 import cl.duoc.app.data.model.Product
 import cl.duoc.app.ui.theme.PlantBuddyTheme
+import cl.duoc.app.ui.viewmodel.CartViewModel
 import java.text.NumberFormat
 import java.util.Locale
 import androidx.compose.ui.platform.LocalContext
@@ -46,12 +48,16 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
 fun CatalogScreen(
-    viewModel: CatalogViewModel = viewModel(),
-    cartViewModel: cl.duoc.app.ui.viewmodel.CartViewModel = run {
-        val context = androidx.compose.ui.platform.LocalContext.current
-        androidx.lifecycle.viewmodel.compose.viewModel { cl.duoc.app.ui.viewmodel.CartViewModel(context) }
-    }
+    viewModel: CatalogViewModel = viewModel()
 ) {
+    val context = LocalContext.current
+    val cartViewModel: CartViewModel = viewModel(factory = object : ViewModelProvider.Factory {
+        override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+            @Suppress("UNCHECKED_CAST")
+            return CartViewModel(context) as T
+        }
+    })
+    
     val estado by viewModel.estado.collectAsState()
     val gridState = rememberLazyGridState()
     val toolbarOffsetDp by animateDpAsState(
@@ -569,7 +575,7 @@ fun EmptyState() {
 }
 
 private fun formatPrice(price: Double): String {
-    val format = NumberFormat.getCurrencyInstance(Locale("es", "CL"))
+    val format = NumberFormat.getCurrencyInstance(Locale.Builder().setLanguage("es").setRegion("CL").build())
     return format.format(price)
 }
 

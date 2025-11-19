@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -83,93 +84,97 @@ fun CartScreen(
                 OrderCompletedState(order = cartState.orderCompleted!!)
             }
             else -> {
-                // Lista de productos con padding inferior para la barra de navegación
-                LazyColumn(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    contentPadding = PaddingValues(bottom = 80.dp)
-                ) {
-                    items(cartState.items, key = { it.product.id }) { item ->
-                        CartItemCard(
-                            item = item,
-                            onQuantityChange = { newQuantity ->
-                                cartViewModel.updateQuantity(item.product.id, newQuantity)
-                            },
-                            onRemove = {
-                                cartViewModel.removeFromCart(item.product.id)
-                            }
-                        )
+                Column(modifier = Modifier.fillMaxSize()) {
+                    // Lista de productos scrolleable
+                    val listState = rememberLazyListState()
+                    
+                    LazyColumn(
+                        state = listState,
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        contentPadding = PaddingValues(bottom = 16.dp)
+                    ) {
+                        items(cartState.items, key = { it.product.id }) { item ->
+                            CartItemCard(
+                                item = item,
+                                onQuantityChange = { newQuantity ->
+                                    cartViewModel.updateQuantity(item.product.id, newQuantity)
+                                },
+                                onRemove = {
+                                    cartViewModel.removeFromCart(item.product.id)
+                                }
+                            )
+                        }
                     }
                     
-                    // Resumen de compra dentro del LazyColumn
-                    item {
-                        Spacer(modifier = Modifier.height(4.dp))
-                        
-                        Card(
-                            modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(
-                                containerColor = MaterialTheme.colorScheme.secondaryContainer
-                            )
+                    // Resumen de compra fijo en la parte inferior
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 8.dp, bottom = 120.dp), // Espacio para nav bar (aumentado)
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surface
+                        ),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 16.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp)
                         ) {
-                            Column(
-                                modifier = Modifier.padding(16.dp)
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween
-                                ) {
-                                    Text(
-                                        text = "Productos (${cartState.itemCount})",
-                                        style = MaterialTheme.typography.bodyLarge
-                                    )
-                                    Text(
-                                        text = formatPrice(cartState.total),
-                                        style = MaterialTheme.typography.bodyLarge
-                                    )
-                                }
-                                
-                                Spacer(modifier = Modifier.height(8.dp))
-                                
-                                HorizontalDivider()
-                                
-                                Spacer(modifier = Modifier.height(8.dp))
-                                
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween
-                                ) {
-                                    Text(
-                                        text = "Total",
-                                        style = MaterialTheme.typography.titleLarge,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                    Text(
-                                        text = formatPrice(cartState.total),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.primary
-                                    )
-                                }
-                                
-                                Spacer(modifier = Modifier.height(16.dp))
-                                
-                                Button(
-                                    onClick = { showCheckoutDialog = true },
-                                    modifier = Modifier.fillMaxWidth(),
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = MaterialTheme.colorScheme.primary
-                                    )
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.ShoppingCart,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(20.dp)
-                                    )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    Text("Ir al pago")
-                                }
+                                Text(
+                                    text = "Productos (${cartState.itemCount})",
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                                Text(
+                                    text = formatPrice(cartState.total),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(8.dp))
+                            
+                            HorizontalDivider()
+                            
+                            Spacer(modifier = Modifier.height(8.dp))
+                            
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(
+                                    text = "Total",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Text(
+                                    text = formatPrice(cartState.total),
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            Button(
+                                onClick = { showCheckoutDialog = true },
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.primary
+                                )
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.ShoppingCart,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text("Ir al pago")
                             }
                         }
                     }
@@ -583,6 +588,72 @@ fun OrderCompletedState(order: cl.duoc.app.data.model.Order) {
 }
 
 private fun formatPrice(price: Double): String {
-    val format = NumberFormat.getCurrencyInstance(Locale("es", "CL"))
+    val format = NumberFormat.getCurrencyInstance(Locale.Builder().setLanguage("es").setRegion("CL").build())
     return format.format(price)
+}
+
+// ==================== PREVIEWS ====================
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true, name = "Carrito Vacío")
+@Composable
+fun EmptyCartPreview() {
+    cl.duoc.app.ui.theme.PlantBuddyTheme {
+        EmptyCartState()
+    }
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true, name = "Item del Carrito")
+@Composable
+fun CartItemCardPreview() {
+    cl.duoc.app.ui.theme.PlantBuddyTheme {
+        CartItemCard(
+            item = CartItem(
+                product = cl.duoc.app.data.model.Product(
+                    id = 1,
+                    name = "Monstera Deliciosa",
+                    description = "Planta tropical de grandes hojas perforadas",
+                    price = 25990.0,
+                    imageUrl = "monstera",
+                    category = "Interior",
+                    stock = 10,
+                    rating = 4.5f
+                ),
+                quantity = 2
+            ),
+            onQuantityChange = {},
+            onRemove = {}
+        )
+    }
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true, name = "Orden Completada")
+@Composable
+fun OrderCompletedPreview() {
+    cl.duoc.app.ui.theme.PlantBuddyTheme {
+        OrderCompletedState(
+            order = cl.duoc.app.data.model.Order(
+                id = 12345,
+                userId = 1,
+                items = listOf(),
+                total = 51980.0,
+                shippingAddress = "Av. Siempre Viva 742, Santiago",
+                paymentMethod = PaymentMethod.CREDIT_CARD,
+                status = cl.duoc.app.data.model.OrderStatus.COMPLETED,
+                createdAt = java.util.Date()
+            )
+        )
+    }
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true, name = "Diálogo de Checkout")
+@Composable
+fun CheckoutDialogPreview() {
+    cl.duoc.app.ui.theme.PlantBuddyTheme {
+        CheckoutDialog(
+            total = 51980.0,
+            isLoading = false,
+            onConfirm = { _, _ -> },
+            onDismiss = {}
+        )
+    }
 }
