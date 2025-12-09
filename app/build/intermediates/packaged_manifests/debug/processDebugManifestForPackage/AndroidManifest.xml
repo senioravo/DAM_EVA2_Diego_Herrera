@@ -25,6 +25,7 @@
     <uses-permission android:name="cl.duoc.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
+        android:name="cl.duoc.app.PlantBuddyApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -34,10 +35,12 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Appkotlinbase" >
+        android:theme="@style/Theme.Appkotlinbase"
+        android:usesCleartextTraffic="true" >
 
         <!-- Meta-data para indicar soporte de alto refresh rate -->
         <meta-data

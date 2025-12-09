@@ -50,6 +50,9 @@ private val CoalLighter = Color(0xff2c2b32)
 private val CoalDark = Color(0xff111115)
 private val CoalDarker = Color(0xff0c0c12)
 
+//Variantes de duck
+private val Duck = Color(0xFFFFF652)
+
 
 
 
@@ -58,8 +61,8 @@ private val Asfalt = Color(0xff333333)
 private val LightColorScheme = lightColorScheme(
     primary = Plant,
     onPrimary = Color.White,
-    primaryContainer = PlantLighter,
-    onPrimaryContainer = PlantLight,
+    primaryContainer = Plant,
+    onPrimaryContainer = Plant,
     secondary = PlantLighter,
     onSecondary = Color.White,
     tertiary = PlantEmphasis,

@@ -52,6 +52,10 @@
         "source": "cl.duoc.app-main-77:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
+        "merged": "cl.duoc.app-debug-75:/xml_network_security_config.xml.flat",
+        "source": "cl.duoc.app-main-77:/xml/network_security_config.xml"
+    },
+    {
         "merged": "cl.duoc.app-debug-75:/drawable_ic_launcher_foreground.xml.flat",
         "source": "cl.duoc.app-main-77:/drawable/ic_launcher_foreground.xml"
     },

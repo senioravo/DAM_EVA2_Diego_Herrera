@@ -3,6 +3,7 @@ package cl.duoc.app.data.model
 import java.time.LocalDateTime
 
 data class PlantelPlant(
+    val plantelId: Int = 0,  // ID del registro en el plantel
     val product: Product,
     val addedDate: LocalDateTime = LocalDateTime.now(),
     val lastWateredDate: LocalDateTime? = null,

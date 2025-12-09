@@ -11,7 +11,7 @@ class PlantelRepository {
     private val _plantelPlants = MutableStateFlow<List<PlantelPlant>>(emptyList())
     val plantelPlants: StateFlow<List<PlantelPlant>> = _plantelPlants.asStateFlow()
     
-    fun addPlantToPlantel(product: Product) {
+    fun addPlantToPlantel(product: Product, plantelId: Int = 0) {
         val currentPlants = _plantelPlants.value.toMutableList()
         
         // Evitar duplicados
@@ -20,6 +20,7 @@ class PlantelRepository {
         }
         
         val newPlantelPlant = PlantelPlant(
+            plantelId = plantelId,
             product = product,
             addedDate = LocalDateTime.now(),
             assistanceStarted = false

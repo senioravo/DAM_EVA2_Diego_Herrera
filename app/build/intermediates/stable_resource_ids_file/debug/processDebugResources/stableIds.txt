@@ -4609,6 +4609,7 @@ cl.duoc.app:dimen/mtrl_calendar_year_corner = 0x7f06028f
 cl.duoc.app:color/primary_dark_material_light = 0x7f0502d4
 cl.duoc.app:attr/layout_constraintLeft_toRightOf = 0x7f030298
 cl.duoc.app:attr/actionBarTabTextStyle = 0x7f03000b
+cl.duoc.app:xml/network_security_config = 0x7f120002
 cl.duoc.app:dimen/m3_sys_motion_easing_emphasized_decelerate_control_y1 = 0x7f0601f5
 cl.duoc.app:attr/layout_constraintBottom_creator = 0x7f030282
 cl.duoc.app:attr/homeLayout = 0x7f030229

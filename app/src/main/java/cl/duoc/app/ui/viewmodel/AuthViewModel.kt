@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.duoc.app.data.model.User
 import cl.duoc.app.data.preferences.UserPreferences
-import cl.duoc.app.data.repository.UserRepository
+import cl.duoc.app.data.repository.AuthRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,7 +23,7 @@ class AuthViewModel(
     private val context: Context
 ) : ViewModel() {
     
-    private val userRepository = UserRepository.getInstance()
+    private val authRepository = AuthRepository(context)
     private val userPreferences = UserPreferences(context)
     
     private val _authState = MutableStateFlow(AuthState())
@@ -39,15 +39,22 @@ class AuthViewModel(
     private fun checkLoginStatus() {
         viewModelScope.launch {
             try {
-                val isLoggedIn = userPreferences.isLoggedIn.first()
-                if (isLoggedIn) {
-                    val userId = userPreferences.currentUserId.first()
-                    userId?.let {
-                        val user = userRepository.getUserById(it)
+                // Verificar si hay sesión activa con JWT
+                val hasSession = authRepository.hasActiveSession()
+                if (hasSession) {
+                    // Intentar obtener usuario actual desde backend
+                    val result = authRepository.getCurrentUser()
+                    if (result.isSuccess) {
+                        val user = result.getOrNull()!!
+                        userPreferences.saveUserSession(user.id, user.email)
                         _authState.value = AuthState(
                             isLoggedIn = true,
                             currentUser = user
                         )
+                    } else {
+                        // Token inválido o expirado
+                        authRepository.logout()
+                        _authState.value = AuthState(isLoggedIn = false)
                     }
                 }
             } catch (e: Exception) {
@@ -61,9 +68,12 @@ class AuthViewModel(
             _authState.value = _authState.value.copy(isLoading = true, error = null)
             
             try {
-                val user = userRepository.login(email, password)
-                if (user != null) {
-                    // Guardar sesión actual
+                val result = authRepository.login(email, password)
+                
+                if (result.isSuccess) {
+                    val user = result.getOrNull()!!
+                    
+                    // Guardar sesión en preferencias
                     userPreferences.saveUserSession(user.id, user.email)
                     
                     // Guardar credenciales si el usuario lo solicitó
@@ -79,7 +89,7 @@ class AuthViewModel(
                 } else {
                     _authState.value = AuthState(
                         isLoading = false,
-                        error = "Email o contraseña incorrectos"
+                        error = result.exceptionOrNull()?.message ?: "Email o contraseña incorrectos"
                     )
                 }
             } catch (e: Exception) {
@@ -104,7 +114,10 @@ class AuthViewModel(
                     return@launch
                 }
                 
-                val result = userRepository.register(email, password)
+                // Extraer username del email (antes del @)
+                val username = email.substringBefore("@")
+                
+                val result = authRepository.register(email, username, password)
                 
                 if (result.isSuccess) {
                     val user = result.getOrNull()!!
@@ -142,7 +155,12 @@ class AuthViewModel(
     fun logout() {
         viewModelScope.launch {
             try {
+                // Limpiar token JWT del backend
+                authRepository.logout()
+                
+                // Limpiar preferencias locales
                 userPreferences.clearUserSession()
+                
                 _authState.value = AuthState(isLoggedIn = false)
             } catch (e: Exception) {
                 _authState.value = _authState.value.copy(error = e.message)

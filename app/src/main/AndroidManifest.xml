@@ -12,6 +12,7 @@
         android:maxSdkVersion="32" />
 
     <application
+        android:name=".PlantBuddyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -20,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Appkotlinbase"
-        android:hardwareAccelerated="true">
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
         
         <!-- Meta-data para indicar soporte de alto refresh rate -->
         <meta-data

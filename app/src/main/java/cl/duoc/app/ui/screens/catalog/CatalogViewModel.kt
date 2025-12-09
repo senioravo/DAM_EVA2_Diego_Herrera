@@ -2,7 +2,7 @@ package cl.duoc.app.ui.screens.catalog
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cl.duoc.app.data.repository.ProductRepository
+import cl.duoc.app.data.repository.ProductRepositoryAPI
 import cl.duoc.app.data.repository.PlantelRepository
 import cl.duoc.app.data.model.Product
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class CatalogViewModel(
-    private val repository: ProductRepository = ProductRepository(),
+    private val repository: ProductRepositoryAPI = ProductRepositoryAPI(),
     private val plantelRepository: PlantelRepository = PlantelRepository.getInstance()
 ) : ViewModel() {
     
@@ -92,7 +92,7 @@ class CatalogViewModel(
         // Calcular el desplazamiento real en píxeles (más lento)
         val scrollDelta = if (firstVisibleIndex != previousIndex) {
             // Cambio de item
-            (firstVisibleIndex - previousIndex) * 5f
+            (firstVisibleIndex - previousIndex).toFloat() * 5f
         } else {
             // Mismo item: usar la diferencia de offset (reducido a 50% de velocidad)
             (firstVisibleOffset - previousOffset).toFloat() * 0.5f
