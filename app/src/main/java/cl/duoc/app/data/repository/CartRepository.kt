@@ -1,5 +1,9 @@
 package cl.duoc.app.data.repository
 
+import android.util.Log
+import cl.duoc.app.data.api.RetrofitClient
+import cl.duoc.app.data.api.dto.CartItemRequest
+import cl.duoc.app.data.api.dto.CreateCompraRequest
 import cl.duoc.app.data.model.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -61,26 +65,58 @@ class CartRepository private constructor() {
         _cartItems.value = emptyList()
     }
     
-    fun createOrder(
+    suspend fun createOrder(
         userId: Int,
         shippingAddress: String,
         paymentMethod: PaymentMethod
     ): Order {
-        val order = Order(
-            id = nextOrderId++,
-            userId = userId,
-            items = _cartItems.value,
-            total = cartTotal,
-            shippingAddress = shippingAddress,
-            paymentMethod = paymentMethod,
-            status = OrderStatus.PENDING,
-            createdAt = Date()
-        )
-        
-        orders.add(order)
-        clearCart()
-        
-        return order
+        try {
+            Log.d("CartRepository", "Creating order for user $userId with ${_cartItems.value.size} items")
+            
+            // Preparar request para el backend
+            val request = CreateCompraRequest(
+                userId = userId,
+                shippingAddress = shippingAddress,
+                paymentMethod = paymentMethod.name,
+                items = _cartItems.value.map { 
+                    CartItemRequest(
+                        productoId = it.product.id,
+                        cantidad = it.quantity
+                    ) 
+                }
+            )
+            
+            // Llamar al backend
+            val response = RetrofitClient.compraApi.createCompra(request)
+            
+            if (response.isSuccessful && response.body() != null) {
+                val compraResponse = response.body()!!
+                Log.d("CartRepository", "Order created successfully on backend with ID: ${compraResponse.id}")
+                
+                // Crear orden local basada en la respuesta del backend
+                val order = Order(
+                    id = compraResponse.id,
+                    userId = userId,
+                    items = _cartItems.value.toList(),
+                    total = compraResponse.total,
+                    shippingAddress = shippingAddress,
+                    status = OrderStatus.PENDING,
+                    paymentMethod = paymentMethod,
+                    createdAt = Date()
+                )
+                
+                orders.add(order)
+                clearCart()
+                return order
+            } else {
+                val errorBody = response.errorBody()?.string()
+                Log.e("CartRepository", "Error creating order: ${response.code()} - $errorBody")
+                throw Exception("Error al crear la compra: ${response.code()}")
+            }
+        } catch (e: Exception) {
+            Log.e("CartRepository", "Exception creating order: ${e.message}", e)
+            throw Exception("Error al conectar con el servidor: ${e.message}")
+        }
     }
     
     fun getOrdersByUser(userId: Int): List<Order> {

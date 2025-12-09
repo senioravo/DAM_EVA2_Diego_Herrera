@@ -103,17 +103,26 @@ data class DetalleCompraDTO(
 
 data class CreateCompraRequest(
     val userId: Int,
-    val items: List<CartItemRequest>,
-    val metodoPago: String
+    val shippingAddress: String,
+    val paymentMethod: String,
+    val items: List<CartItemRequest>
 )
 
 data class CartItemRequest(
-    val productId: Int,
-    val quantity: Int
+    val productoId: Int,
+    val cantidad: Int
 )
 
 data class UpdateStatusRequest(
     val estado: String
+)
+
+data class CreateCompraResponse(
+    val id: Int,
+    val total: Double,
+    val metodoPago: String,
+    val estado: String,
+    val createdAt: String
 )
 
 // Response genérico para errores

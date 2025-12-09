@@ -7,7 +7,7 @@ import retrofit2.http.*
 interface CompraApiService {
     
     @POST("compras/crear")
-    suspend fun createCompra(@Body request: CreateCompraRequest): Response<CompraDTO>
+    suspend fun createCompra(@Body request: CreateCompraRequest): Response<CreateCompraResponse>
     
     @GET("compras/usuario/{userId}")
     suspend fun getComprasByUserId(@Path("userId") userId: Int): Response<List<CompraDTO>>
