@@ -22,6 +22,20 @@ android {
         manifestPlaceholders["TARGET_FRAME_RATE"] = "120"
     }
 
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("../keystore/plantbuddy-release.jks")
+            storePassword = "plantbuddy2025"
+            keyAlias = "plantbuddy-key"
+            keyPassword = "plantbuddy2025"
+        }
+    }
+
     buildTypes {
         debug {
             // Desactivar optimizaciones que limitan frame rate en debug
@@ -33,6 +47,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

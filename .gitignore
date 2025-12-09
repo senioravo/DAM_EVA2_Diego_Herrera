@@ -1,0 +1,4 @@
+
+# Keystore (contiene credenciales privadas)
+keystore/*.jks
+*.jks
